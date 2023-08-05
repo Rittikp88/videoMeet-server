@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
 
 // Serve index.html for the root route
 app.get("/", (req, res, next) => {
+  res.send("helo word")
+});
+
+app.get("/api", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../webView-Video-call/dist/index.html"));
 });
 
