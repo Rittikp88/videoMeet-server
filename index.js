@@ -18,11 +18,11 @@ const emailToSocketIdMap = new Map();
 const socketIdToEmailMap = new Map();
 
 /// Serve static files from the "dist" directory
-app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
+// app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
 
 // Serve index.html for the root route
 app.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../webView-Video-call/dist/index.html"));
+  res.send("<h4>kedhbjhwegdhwvedhw</h4>");
 });
 
 
