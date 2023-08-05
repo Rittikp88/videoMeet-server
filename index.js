@@ -23,7 +23,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/api", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../webView-Video-call/dist/index.html"));
+  res.sendFile(path.join("https://video-meet-v6dv.vercel.app/"));
 });
 
 
