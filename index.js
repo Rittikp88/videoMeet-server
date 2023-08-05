@@ -4,12 +4,13 @@ const http = require("http");
 const cors = require("cors");
 const path = require("path");
 const { Server } = require("socket.io");
-app.use(cors({
-    origin: "https://video-meet-v6dv.vercel.app", // Replace with your frontend domain
-  }));
-  const server = http.createServer(app);
+app.use(cors());
+const server = http.createServer(app);
 const io = new Server(server,{
-    cors: true,
+    
+    cors:{
+        origin: "https://video-meet-v6dv.vercel.app"
+    }
 })
 const port = process.env.PORT || 8080;
 
