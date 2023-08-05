@@ -4,8 +4,10 @@ const http = require("http");
 const cors = require("cors");
 const path = require("path");
 const { Server } = require("socket.io");
-app.use(cors());
-const server = http.createServer(app);
+app.use(cors({
+    origin: "https://video-meet-v6dv.vercel.app", // Replace with your frontend domain
+  }));
+  const server = http.createServer(app);
 const io = new Server(server,{
     cors: true,
 })
@@ -19,13 +21,8 @@ app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
 
 // Serve index.html for the root route
 app.get("/", (req, res, next) => {
-  res.send("helo word")
+  res.sendFile(path.join(__dirname, "../webView-Video-call/dist/index.html"));
 });
-
-app.get("/api", (req, res, next) => {
-  res.sendFile(path.join("https://video-meet-v6dv.vercel.app/"));
-});
-
 
 
 io.on("connection", (socket) => {
