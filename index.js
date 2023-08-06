@@ -5,14 +5,16 @@ const cors = require("cors");
 const path = require("path");
 const { Server } = require("socket.io");
 app.use(cors());
+
 const server = http.createServer(app);
+
 const io = new Server(server, {
   cors: {
     origin: "http://127.0.0.1:5173",
     methods: ["GET", "POST"],
-    transports: ['websocket', 'polling'],
     credentials: true
-},
+  },
+  transports: ["websocket", "polling", "flashsocket"],
 allowEIO3: true
 });
 
