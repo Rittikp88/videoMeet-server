@@ -7,7 +7,13 @@ const { Server } = require("socket.io");
 app.use(cors());
 const server = http.createServer(app);
 const io = new Server(server, {
-  cors: true,
+  cors: {
+    origin: "http://127.0.0.1:5173",
+    methods: ["GET", "POST"],
+    transports: ['websocket', 'polling'],
+    credentials: true
+},
+allowEIO3: true
 });
 
 const port = 8080;
