@@ -18,7 +18,15 @@ const server = http.createServer(app);
 // allowEIO3: true
 // });
 
-const io = new Server(httpServer, { cors: { origin: '*' } });
+const io = new Server(server, {
+  cors: {
+    origin: "*", // Allow connections from any origin. Change it to your specific origin if needed.
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+  transports: ["websocket", "flashsocket", "polling"], // You can include all the necessary transports here.
+  allowEIO3: true,
+});
 
 
 io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
