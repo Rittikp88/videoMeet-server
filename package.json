@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    
+    "start": "/netlify-lamda serve .",
+    "build": "/netlify-lamda serve .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
