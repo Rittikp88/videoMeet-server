@@ -8,15 +8,18 @@ app.use(cors());
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
-  cors: {
-    origin: "http://127.0.0.1:5173",
-    methods: ["GET", "POST"],
-    credentials: true
-  },
-  transports: ["websocket", "polling", "flashsocket"],
-allowEIO3: true
-});
+// const io = new Server(server, {
+//   cors: {
+//     origin: "http://127.0.0.1:5173",
+//     methods: ["GET", "POST"],
+//     credentials: true
+//   },
+//   transports: ["websocket", "polling", "flashsocket"],
+// allowEIO3: true
+// });
+
+const io = new Server(httpServer, { cors: { origin: '*' } });
+
 
 io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
 
