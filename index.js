@@ -19,15 +19,16 @@ allowEIO3: true
 const port = 8080;
 
 const emailToSocketIdMap = new Map();
+
 const socketIdToEmailMap = new Map();
 
 /// Serve static files from the "dist" directory
 // app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
 
 // Serve index.html for the root route
-app.get("/", (req, res, next) => {
-  res.send("<h4>kedhbjhwegdhwvedhw</h4>");
-});
+// app.get("/", (req, res, next) => {
+//   res.send("<h4>kedhbjhwegdhwvedhw</h4>");
+// });
 
 io.on("connection", (socket) => {
   console.log(`Socket Connected`, socket.id);
