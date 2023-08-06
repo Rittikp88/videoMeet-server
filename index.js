@@ -4,32 +4,23 @@ const http = require("http");
 const cors = require("cors");
 const path = require("path");
 const { Server } = require("socket.io");
+const serverless = require("serverless-http")
 app.use(cors());
 
 const server = http.createServer(app);
 
-// const io = new Server(server, {
-//   cors: {
-//     origin: "http://127.0.0.1:5173",
-//     methods: ["GET", "POST"],
-//     credentials: true
-//   },
-//   transports: ["websocket", "polling", "flashsocket"],
-// allowEIO3: true
-// });
-
 const io = new Server(server, {
   cors: {
-    origin: "*", // Allow connections from any origin. Change it to your specific origin if needed.
+    origin: "*", 
     methods: ["GET", "POST"],
     credentials: true,
   },
-  transports: ["websocket", "flashsocket", "polling"], // You can include all the necessary transports here.
+  transports: ["websocket", "flashsocket", "polling"], 
   allowEIO3: true,
 });
 
 
-io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
+// io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
 
 const port = 8080;
 
@@ -77,3 +68,5 @@ io.on("connection", (socket) => {
 server.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+exports.handler = serverless(app);
