@@ -16,6 +16,8 @@ const io = new Server(server, {
 allowEIO3: true
 });
 
+io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
+
 const port = 8080;
 
 const emailToSocketIdMap = new Map();
