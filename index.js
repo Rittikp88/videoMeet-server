@@ -22,7 +22,16 @@ const io = new Server(server, {
 
 // io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
 
-const port = 8080;
+const port = 80;
+// const port = 443;
+
+app.use(express.static(__dirname + "/../webView-Video-call/dist"));
+
+// Serve index.html for the root route
+app.get("/", (req, res, next) => {
+  res.sendFile(__dirname + "/../webView-Video-call/dist/index.html");
+});
+
 
 const emailToSocketIdMap = new Map();
 
@@ -32,9 +41,9 @@ const socketIdToEmailMap = new Map();
 // app.use(express.static(path.join(__dirname, "../webView-Video-call/dist")));
 
 // Serve index.html for the root route
-// app.get("/", (req, res, next) => {
-//   res.send("<h4>kedhbjhwegdhwvedhw</h4>");
-// });
+app.get("/", (req, res, next) => {
+  res.send("<h4>kedhbjhwegdhwvedhw</h4>");
+});
 
 io.on("connection", (socket) => {
   console.log(`Socket Connected`, socket.id);
