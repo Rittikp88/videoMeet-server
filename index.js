@@ -22,7 +22,7 @@ const io = new Server(server, {
 
 // io.set('transports', [ 'websocket', 'flashsocket', 'polling' ] );
 
-const port = 80;
+const port = 8080;
 // const port = 443;
 
 app.use(express.static(__dirname + "/../webView-Video-call/dist"));
