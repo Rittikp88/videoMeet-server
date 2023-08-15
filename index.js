@@ -25,13 +25,12 @@ const io = new Server(server, {
 const port = 8080;
 // const port = 443;
 
-app.use(express.static(__dirname + "/../webView-Video-call/dist"));
+// app.use(express.static(__dirname + "/../webView-Video-call/dist"));
 
-// Serve index.html for the root route
-app.get("/", (req, res, next) => {
-  res.sendFile(__dirname + "/../webView-Video-call/dist/index.html");
-});
-
+// // Serve index.html for the root route
+// app.get("/", (req, res, next) => {
+//   res.sendFile(__dirname + "/../webView-Video-call/dist/index.html");
+// });
 
 const emailToSocketIdMap = new Map();
 
